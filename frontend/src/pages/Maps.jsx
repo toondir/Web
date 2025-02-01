@@ -22,7 +22,7 @@ export default function Maps() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Load API key and data in parallel
+   
     const loadData = async () => {
       try {
         setApiKey(import.meta.env.VITE_GOOGLE_MAPS_API_KEY);

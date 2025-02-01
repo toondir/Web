@@ -11,7 +11,7 @@ const Note = () => {
     const [submitButton,setSubmitButton] = useState(false);
 
     useEffect(() => {
-        // Fetch notes from the Django API
+      
         axios.get('http://localhost:8000/api/notes/')
             .then(response => {
                 setNotes(response.data);
@@ -32,11 +32,11 @@ const Note = () => {
         const newNote = { title, content }; 
         
         axios
-          .post("http://localhost:8000/api/notes/", newNote) // POST request
+          .post("http://localhost:8000/api/notes/", newNote) 
           .then((response) => {
-            setNotes([...notes, response.data]); // Update notes list with new note
-            setTitle(""); // Clear the title input
-            setContent(""); // Clear the content input
+            setNotes([...notes, response.data]); 
+            setTitle(""); 
+            setContent(""); 
           })
           .catch((error) => {
             console.error("There was an error creating the note!", error);
@@ -79,7 +79,7 @@ const Note = () => {
             setContent("");
             setEditId(null);
           })
-          .catch((error) => {  // Don't forget error handling
+          .catch((error) => {  
             console.error("Error updating note:", error);
           });
     };
@@ -156,7 +156,7 @@ const Note = () => {
       Submit
     </button>
     <button 
-      type="button"  // Change to type="button" to prevent form submission
+      type="button"  
       className="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-700"
       onClick={() => { setSubmitButton(false)}}
     >
